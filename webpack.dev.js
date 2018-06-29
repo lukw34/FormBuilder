@@ -12,6 +12,6 @@ module.exports = merge(common, {
         compress: true,
         progress: true,
         watchContentBase: true,
-        port: 9000
+        port: 8080
     }
 });
