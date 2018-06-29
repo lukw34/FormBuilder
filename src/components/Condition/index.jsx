@@ -34,7 +34,7 @@ class Condition extends React.Component {
     static propTypes = {
         type: PropTypes.oneOf([NUMBER_FIELD, TEXT_FIELD, RADIO_FIELD]).isRequired,
         fieldKey: PropTypes.string.isRequired,
-        value: PropTypes.string,
+        value: PropTypes.string, //eslint-disable-line
         changeCondition: PropTypes.func.isRequired
     };
 
@@ -51,7 +51,6 @@ class Condition extends React.Component {
     static getDerivedStateFromProps(props) {
         const {value} = props;
         const [parent, conditionType, text] = value.split(' ');
-
         return {
             parent,
             conditionType,
@@ -85,7 +84,32 @@ class Condition extends React.Component {
                     />
                 </InputStyled>
                 <InputStyled>
-                    <TextInput name={`${fieldKey}-conditionText`} value={text} onChange={this.onTextChange} />
+                    {
+                        {
+                            [TEXT_FIELD]: <TextInput
+                                name={`${fieldKey}-conditionText`}
+                                value={text}
+                                onChange={this.onTextChange}
+                            />,
+                            [NUMBER_FIELD]: <TextInput
+                                name={`${fieldKey}-conditionText`}
+                                value={text}
+                                onChange={this.onTextChange}
+                            />,
+                            [RADIO_FIELD]: <SelectInput
+                                name={`${fieldKey}-conditionText`}
+                                options={[{
+                                    label: 'Yes',
+                                    value: 'true'
+                                }, {
+                                    label: 'No',
+                                    value: 'false'
+                                }]}
+                                value={text}
+                                onChange={this.onTextChange}
+                            />
+                        }[type]}
+
                 </InputStyled>
             </ConditionStyled>
         );

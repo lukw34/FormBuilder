@@ -16,10 +16,6 @@ yarn build
 yarn start:dev:server
 ```
 
-- execute unit tests
-```bash
-yarn test
-```
 - execute eslint check
 ```bash
 yarn eslint

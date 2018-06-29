@@ -8,7 +8,7 @@ const jsLoaders = [{
 
 const plugins = [
     new HtmlWebpackPlugin({
-        title: 'react-webpack-template',
+        title: 'Form builder',
         template: 'src/index.ejs',
         filename: 'index.html',
         inject: 'body',

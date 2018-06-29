@@ -8,6 +8,12 @@ import Condition from '../Condition/index';
 import ButtonContainerStyled from './ButtonContainerStyled';
 import ContainerStyled from './ContainerStyled';
 
+const defaultValues = {
+    [TEXT_FIELD]: '',
+    [NUMBER_FIELD]: '0',
+    [RADIO_FIELD]: false
+};
+
 class QuestionSchemaFormItem extends React.Component {
     static propTypes = {
         fieldKey: PropTypes.string.isRequired,
@@ -41,8 +47,10 @@ class QuestionSchemaFormItem extends React.Component {
     };
 
     addSubInput = () => {
-        const {addInput, fieldKey, itemsCount} = this.props;
-        addInput(`${fieldKey}.${itemsCount}`, `${fieldKey} === `);
+        const {
+            addInput, fieldKey, itemsCount, type
+        } = this.props;
+        addInput(`${fieldKey}.${itemsCount}`, `${fieldKey} === ${defaultValues[type]}`);
     };
 
     deleteInput = () => {

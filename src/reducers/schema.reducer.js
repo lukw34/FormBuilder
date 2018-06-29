@@ -9,6 +9,7 @@ import {
     SET_SCHEMA,
     DELETE_ITEM_TYPE
 } from '../actions/schema.actions';
+import {NUMBER_FIELD, RADIO_FIELD, TEXT_FIELD} from '../constants';
 
 
 const Field = new Record({
@@ -19,6 +20,12 @@ const Field = new Record({
     properties: Map({})
 });
 
+const defaultValues = {
+    [TEXT_FIELD]: '',
+    [NUMBER_FIELD]: '0',
+    [RADIO_FIELD]: false
+};
+
 const addItem = (state, {key, condition}) => state.setIn(getPath(key), new Field({
     condition,
     key,
@@ -28,7 +35,11 @@ const changeFieldDescription = (state, {key, question}) => state.setIn([...getPa
 
 const changeItemType = (state, {key, questionType}) => {
     const fieldKey = getPath(key);
-    return state.setIn([...fieldKey, 'type'], questionType);
+    const mappedProperties = state.getIn([...fieldKey, 'properties']).map(v => {
+        const [parent] = v.getIn(['condition']).split(' ');
+        return v.setIn(['condition'], `${parent} === ${defaultValues[questionType]}`);
+    });
+    return state.setIn([...fieldKey, 'type'], questionType).setIn([...fieldKey, 'properties'], mappedProperties);
 };
 
 const setSchema = (state, {schema}) => fromJS(schema);

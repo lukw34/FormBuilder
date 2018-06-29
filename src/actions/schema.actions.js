@@ -5,7 +5,7 @@ export const CHANGE_ITEM_CONDITION = 'builder/CHANGE_ITEM_CONDITION';
 export const CHANGE_ITEM_TYPE = 'builder/CHANGE_ITEM_TYPE';
 export const DELETE_ITEM_TYPE = 'builder/DELETE_ITEM';
 
-export const setSchem = schema => ({
+export const setSchema = schema => ({
     type: SET_SCHEMA,
     schema
 });

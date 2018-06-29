@@ -5,6 +5,11 @@ const getSchema = state => state.schema;
 
 const getFieldKey = (state, props) => props.fieldKey;
 
+export const selectSchema = createSelector(
+    getSchema,
+    schema => schema.toJS()
+);
+
 export const selectRootSchemaKeys = createSelector(
     getSchema,
     schema => {
