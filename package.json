@@ -17,16 +17,23 @@
     }
   ],
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "immutable": "^3.8.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "reselect": "^3.0.1"
+  },
   "pre-commit": [
     "eslint"
   ],
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.5",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.22.0",
     "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "^0.1.15",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",

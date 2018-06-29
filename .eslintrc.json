@@ -9,6 +9,7 @@
     "jsx-a11y",
     "import"
   ],
+  "parser": "babel-eslint",
   "rules": {
     "max-len": [0],
     "eol-last": [0],

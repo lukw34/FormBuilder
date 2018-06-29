@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 import {injectGlobal} from 'styled-components';
 
+import store from './store';
 import App from './components/App';
 
 injectGlobal`
@@ -10,9 +12,11 @@ injectGlobal`
         padding: 0;
         height: 100%;
     }
-    body {
-        height: 100%;
-    }
 `;
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('app')
+);

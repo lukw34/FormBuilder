@@ -1,15 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-const DivStyled = styled.div`
-    background: red;
-`;
+import QuestionSchemaForm from '../../containers/QuestionSchemaForm/index';
 
-const App = () => (
-    <DivStyled>
-        FormBuilder
-    </DivStyled>
-);
+
+const App = () => <QuestionSchemaForm />;
 
 export default App;

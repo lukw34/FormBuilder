@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const jsLoaders = [{
-    loader: 'babel-loader'
+    loader: 'babel-loader',
 }];
 
 const plugins = [
@@ -39,7 +39,7 @@ module.exports = {
         rules: [{
             test: /(\.js|\.jsx)$/,
             exclude: [/node_modules/, /bower_components/],
-            use: jsLoaders
+            use: jsLoaders,
         }]
     },
     plugins
